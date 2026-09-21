@@ -1,0 +1,3 @@
+<?php
+namespace App\Models; use Illuminate\Database\Eloquent\Model;
+class Usuario extends Model { protected $table='usuarios'; public $timestamps=false; protected $fillable=['username','password_hash','nombre','apellido','identificacion','tipo_identificacion_id','email','telefono','rol_id','activo','confirma_habeas_data','firma_digital_url','huella_template','foto_url']; protected $hidden=['password_hash','huella_template']; protected $casts=['activo'=>'boolean','confirma_habeas_data'=>'boolean']; public function rol(){return $this->belongsTo(Rol::class);} public function inmuebles(){return $this->belongsToMany(Inmueble::class,'inmueble_residentes')->withPivot(['tipo_residente_id','calidad_residente_id']);} }

@@ -1,0 +1,3 @@
+<?php
+use Illuminate\Support\Facades\Route; use App\Http\Controllers\{InmuebleController,UsuarioController,EstadoCuentaController,PagoController,RegistroIngresoController,ReservaController,AuditoriaLogController};
+Route::apiResource('inmuebles',InmuebleController::class); Route::apiResource('usuarios',UsuarioController::class); Route::apiResource('estados-cuenta',EstadoCuentaController::class); Route::apiResource('pagos',PagoController::class); Route::apiResource('registros-ingreso',RegistroIngresoController::class); Route::apiResource('reservas',ReservaController::class); Route::apiResource('auditoria-log',AuditoriaLogController::class);

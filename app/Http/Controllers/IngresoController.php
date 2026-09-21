@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers; use App\Models\RegistroIngreso; use App\Services\IngresoService; class RegistroIngresoController extends CrudController {protected $service;protected $model=RegistroIngreso::class;public function __construct(IngresoService $service){$this->service=$service;}protected function rules():array{return ['inmueble_id'=>'required|integer','nombre_completo'=>'required|string|max:250','identificacion'=>'required|string|max:50','tipo_identificacion_id'=>'required|integer','calidad_ingreso_id'=>'required|integer','check_in'=>'required|date'];}}

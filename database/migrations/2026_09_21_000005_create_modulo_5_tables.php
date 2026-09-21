@@ -1,0 +1,3 @@
+<?php
+use Illuminate\Database\Migrations\Migration; use Illuminate\Database\Schema\Blueprint; use Illuminate\Support\Facades\Schema;
+return new class extends Migration { public function up():void { Schema::create('auditoria_log',function(Blueprint $t){$t->id();$t->foreignId('usuario_id')->constrained('usuarios');$t->string('accion',100);$t->string('tabla_afectada',100);$t->unsignedBigInteger('registro_id');$t->json('valor_anterior')->nullable();$t->json('valor_nuevo')->nullable();$t->ipAddress('ip_address')->nullable();$t->timestamp('fecha_accion')->useCurrent();}); } public function down():void{Schema::dropIfExists('auditoria_log');} };

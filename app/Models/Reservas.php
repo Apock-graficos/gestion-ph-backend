@@ -1,0 +1,8 @@
+<?php
+namespace App\Models; use Illuminate\Database\Eloquent\Model;
+class EstadoReserva extends Model {protected $table='estados_reserva';public $timestamps=false;protected $fillable=['nombre'];}
+class ZonaComun extends Model {protected $table='zonas_comunes';public $timestamps=false;protected $fillable=['nombre','descripcion','capacidad_maxima','hora_apertura','hora_cierre','costo_base_3_horas','costo_hora_adicional','reglamento_url','activo'];protected $casts=['activo'=>'boolean','costo_base_3_horas'=>'decimal:2','costo_hora_adicional'=>'decimal:2'];}
+class Reserva extends Model {protected $table='reservas';public $timestamps=false;protected $fillable=['zona_id','usuario_id','inmueble_id','fecha_reserva','hora_inicio','hora_fin','numero_personas','valor_reserva','estado_reserva_id','observaciones','creado_en'];protected $casts=['fecha_reserva'=>'date','valor_reserva'=>'decimal:2','creado_en'=>'datetime'];}
+class InvitadoReserva extends Model {protected $table='invitados_reserva';public $timestamps=false;protected $fillable=['reserva_id','nombre','identificacion','edad'];}
+class EntregaReserva extends Model {protected $table='entregas_reserva';public $timestamps=false;protected $fillable=['reserva_id','descripcion_elementos','foto_entrega_url','recibido_conforme','foto_devolucion_url','entregado_por'];protected $casts=['recibido_conforme'=>'boolean'];}
+class PagoReserva extends Model {protected $table='pagos_reserva';public $timestamps=false;protected $fillable=['reserva_id','medio_pago_id','referencia_pago_pasarela','soporte_datafono_url','monto_pagado','fecha_pago'];protected $casts=['monto_pagado'=>'decimal:2','fecha_pago'=>'datetime'];}

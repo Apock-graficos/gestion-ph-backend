@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers; use App\Models\Inmueble; use App\Services\PropiedadService; class InmuebleController extends CrudController {protected $service;protected $model=Inmueble::class;public function __construct(PropiedadService $service){$this->service=$service;}protected function rules():array{return ['torre'=>'required|string|max:50','apto'=>'required|string|max:50','coeficiente'=>'required|numeric','valor_cuota_anterior'=>'required|numeric','valor_cuota_actual'=>'required|numeric'];}}

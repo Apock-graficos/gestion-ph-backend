@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers; use App\Models\AuditoriaLog; use App\Services\AuditoriaService; class AuditoriaLogController extends CrudController {protected $service;protected $model=AuditoriaLog::class;public function __construct(AuditoriaService $service){$this->service=$service;}protected function rules():array{return ['usuario_id'=>'required|integer','accion'=>'required|string|max:100','tabla_afectada'=>'required|string|max:100','registro_id'=>'required|integer'];}}

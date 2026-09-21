@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers; use App\Models\Reserva; use App\Services\ReservaService; class ReservaController extends CrudController {protected $service;protected $model=Reserva::class;public function __construct(ReservaService $service){$this->service=$service;}protected function rules():array{return ['zona_id'=>'required|integer','usuario_id'=>'required|integer','inmueble_id'=>'required|integer','fecha_reserva'=>'required|date','hora_inicio'=>'required','hora_fin'=>'required','numero_personas'=>'required|integer|min:1','valor_reserva'=>'required|numeric'];}}
